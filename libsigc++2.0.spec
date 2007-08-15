@@ -1,5 +1,5 @@
 %define version 2.1.1
-%define release %mkrel 1
+%define release %mkrel 2
 
 %define pkgname libsigc++
 
@@ -66,7 +66,7 @@ Obsoletes:	libsigc++1.2-examples
 Provides:	%{pkgname}%{api_version}-devel = %{version}-%{release}
 Provides:	sigc++%{api_version}-devel = %{version}-%{release}
 Requires:	%{libname} = %{version}
-Obsoletes: %mklibname -d %api_version %major
+Obsoletes: %mklibname -d sigc++ %api_version %major
 
 %description -n %{libnamedev}
 This package contains the headers and static libraries of %{pkgname},
