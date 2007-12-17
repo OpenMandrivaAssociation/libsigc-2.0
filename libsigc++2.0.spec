@@ -16,7 +16,6 @@ License:	LGPL
 Source:		ftp://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.bz2
 URL:		http://libsigc.sourceforge.net/
 Group:		System/Libraries
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 
 %description
