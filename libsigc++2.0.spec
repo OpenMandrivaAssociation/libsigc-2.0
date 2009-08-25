@@ -121,6 +121,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files doc
 %defattr(-, root, root)
-%doc %{_docdir}/libsigc-%{api_version}
-
+%doc %{_docdir}/libsigc++-%{api_version}
+%_datadir/devhelp/books/libsigc++-%{api_version}
 
