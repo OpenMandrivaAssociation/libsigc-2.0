@@ -1,4 +1,4 @@
-%define version 2.2.3
+%define version 2.2.4
 %define release %mkrel 1
 
 %define pkgname libsigc++
@@ -115,7 +115,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog TODO
 %{_includedir}/*
 %{_libdir}/lib*.so
-%{_libdir}/*.a
 %{_libdir}/*.la
 %{_libdir}/pkgconfig/*
 %{_libdir}/sigc++-%{api_version}
