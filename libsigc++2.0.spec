@@ -1,5 +1,5 @@
-%define version 2.2.9
-%define release %mkrel 2
+%define version 2.2.10
+%define release %mkrel 1
 
 %define pkgname libsigc++
 
@@ -13,7 +13,7 @@ Summary:	The Typesafe Signal Framework for C++
 Version:	%{version}
 Release:	%{release}
 License:	LGPL
-Source:		ftp://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.bz2
+Source:		ftp://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.xz
 URL:		http://libsigc.sourceforge.net/
 Group:		System/Libraries
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
