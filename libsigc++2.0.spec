@@ -1,5 +1,5 @@
 %define version 2.2.10
-%define release %mkrel 1
+%define release %mkrel 2
 
 %define pkgname libsigc++
 
@@ -115,7 +115,6 @@ rm -rf %{buildroot}
 %doc AUTHORS ChangeLog TODO
 %{_includedir}/*
 %{_libdir}/lib*.so
-%{_libdir}/*.la
 %{_libdir}/pkgconfig/*
 %{_libdir}/sigc++-%{api_version}
 
