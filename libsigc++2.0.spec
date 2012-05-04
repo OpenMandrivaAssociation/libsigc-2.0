@@ -1,22 +1,18 @@
-%define version 2.2.10
-%define release %mkrel 2
-
 %define pkgname libsigc++
 
-%define api_version 2.0
+%define api 2.0
 %define major 0
-%define libname %mklibname sigc++ %api_version %major
-%define libnamedev %mklibname -d sigc++ %api_version
+%define libname %mklibname sigc++ %{api} %{major}
+%define develname %mklibname -d sigc++ %{api}
 
-Name:		%{pkgname}%{api_version}
+Name:		%{pkgname}%{api}
 Summary:	The Typesafe Signal Framework for C++
-Version:	%{version}
-Release:	%{release}
+Version:	2.2.10
+Release:	3
 License:	LGPL
-Source:		ftp://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.xz
-URL:		http://libsigc.sourceforge.net/
 Group:		System/Libraries
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+URL:		http://libsigc.sourceforge.net/
+Source0		ftp://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.xz
 
 
 %description
@@ -39,7 +35,7 @@ Package gtkmm, which is a c++ binding to the famous gtk+ library, uses
 %package -n %{libname}
 Summary:	The Typesafe Signal Framework for C++
 Group:		System/Libraries
-Provides:	%{pkgname}%{api_version} = %{version}-%{release}
+Provides:	%{pkgname}%{api} = %{version}-%{release}
 
 %description -n %{libname}
 Callback system for use in widget libraries, abstract interfaces, and
@@ -58,17 +54,16 @@ Package gtkmm, which is a c++ binding to the famous gtk+ library, uses
 %{pkgname}.
 
 
-%package -n %{libnamedev}
+%package -n %{develname}
 Summary:	Development tools for the Typesafe Signal Framework for C++ 
 Group:		Development/C++
 Provides:	libsigc++1.2-examples
 Obsoletes:	libsigc++1.2-examples
-Provides:	%{pkgname}%{api_version}-devel = %{version}-%{release}
-Provides:	sigc++%{api_version}-devel = %{version}-%{release}
+Provides:	%{pkgname}%{api}-devel = %{version}-%{release}
+Provides:	sigc++%{api}-devel = %{version}-%{release}
 Requires:	%{libname} = %{version}
-Obsoletes: %mklibname -d sigc++ %api_version %major
 
-%description -n %{libnamedev}
+%description -n %{develname}
 This package contains the headers and static libraries of %{pkgname},
 which are needed when developing or compiling applications which use
 %{pkgname}.
@@ -84,7 +79,6 @@ This package provides API documentation of %{pkgname} library.
 %setup -q -n %{pkgname}-%{version}
 
 %build
-
 %configure2_5x
 %make
 
@@ -92,34 +86,20 @@ This package provides API documentation of %{pkgname} library.
 make check
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 
-%if %mdkversion < 200900
-%post -n %{libname} -p /sbin/ldconfig
-%endif
-%if %mdkversion < 200900
-%postun -n %{libname} -p /sbin/ldconfig
-%endif
-
-%clean
-rm -rf %{buildroot}
-
 %files -n %{libname}
-%defattr(-,root,root)
 %doc COPYING NEWS README
-%{_libdir}/libsigc-%{api_version}.so.%{major}*
+%{_libdir}/libsigc-%{api}.so.%{major}*
 
-%files -n %{libnamedev}
-%defattr(-, root, root)
+%files -n %{develname}
 %doc AUTHORS ChangeLog TODO
 %{_includedir}/*
 %{_libdir}/lib*.so
 %{_libdir}/pkgconfig/*
-%{_libdir}/sigc++-%{api_version}
+%{_libdir}/sigc++-%{api}
 
 %files doc
-%defattr(-, root, root)
-%doc %{_docdir}/libsigc++-%{api_version}
-%_datadir/devhelp/books/libsigc++-%{api_version}
+%doc %{_docdir}/libsigc++-%{api}
+%_datadir/devhelp/books/libsigc++-%{api}
 
