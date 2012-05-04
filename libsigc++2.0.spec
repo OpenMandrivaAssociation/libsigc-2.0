@@ -12,8 +12,7 @@ Release:	3
 License:	LGPL
 Group:		System/Libraries
 URL:		http://libsigc.sourceforge.net/
-Source0		ftp://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.xz
-
+Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.xz
 
 %description
 Callback system for use in widget libraries, abstract interfaces, and
