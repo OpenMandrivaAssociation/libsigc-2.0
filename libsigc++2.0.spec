@@ -7,12 +7,13 @@
 
 Name:		%{pkgname}%{api}
 Summary:	The Typesafe Signal Framework for C++
-Version:	2.2.10
-Release:	3
+Version:	2.3.1
+Release:	1
 License:	LGPL
 Group:		System/Libraries
 URL:		http://libsigc.sourceforge.net/
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.xz
+BuildRequires:	mm-common
 
 %description
 Callback system for use in widget libraries, abstract interfaces, and
@@ -78,6 +79,10 @@ This package provides API documentation of %{pkgname} library.
 %setup -q -n %{pkgname}-%{version}
 
 %build
+# don't waste time building examples
+sed -i 's|^\(SUBDIRS =.*\)examples\(.*\)$|\1\2|' \
+        Makefile.am Makefile.in
+autoreconf -fi
 %configure2_5x
 %make
 
