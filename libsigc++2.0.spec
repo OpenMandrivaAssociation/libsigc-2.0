@@ -1,18 +1,19 @@
-%define pkgname libsigc++
+%define url_ver %(echo %{version}|cut -d. -f1,2)
 
-%define api 2.0
-%define major 0
-%define libname %mklibname sigc++ %{api} %{major}
-%define develname %mklibname -d sigc++ %{api}
+%define pkgname	libsigc++
+%define api	2.0
+%define major	0
+%define libname	%mklibname sigc++ %{api} %{major}
+%define devname	%mklibname -d sigc++ %{api}
 
-Name:		%{pkgname}%{api}
 Summary:	The Typesafe Signal Framework for C++
+Name:		%{pkgname}%{api}
 Version:	2.3.1
 Release:	1
-License:	LGPL
+License:	LGPLv2
 Group:		System/Libraries
-URL:		http://libsigc.sourceforge.net/
-Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{pkgname}/%{pkgname}-%{version}.tar.xz
+Url:		http://libsigc.sourceforge.net/
+Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/libsigc++/%{url_ver}/%{pkgname}-%{version}.tar.xz
 BuildRequires:	mm-common
 
 %description
@@ -30,7 +31,6 @@ libraries.
 
 Package gtkmm, which is a c++ binding to the famous gtk+ library, uses
 %{pkgname}.
-
 
 %package -n %{libname}
 Summary:	The Typesafe Signal Framework for C++
@@ -54,16 +54,14 @@ Package gtkmm, which is a c++ binding to the famous gtk+ library, uses
 %{pkgname}.
 
 
-%package -n %{develname}
+%package -n %{devname}
 Summary:	Development tools for the Typesafe Signal Framework for C++ 
 Group:		Development/C++
-Provides:	libsigc++1.2-examples
-Obsoletes:	libsigc++1.2-examples
 Provides:	%{pkgname}%{api}-devel = %{version}-%{release}
 Provides:	sigc++%{api}-devel = %{version}-%{release}
-Requires:	%{libname} = %{version}
+Requires:	%{libname} = %{version}-%{release}
 
-%description -n %{develname}
+%description -n %{devname}
 This package contains the headers and static libraries of %{pkgname},
 which are needed when developing or compiling applications which use
 %{pkgname}.
@@ -76,13 +74,13 @@ Group:		Books/Other
 This package provides API documentation of %{pkgname} library.
 
 %prep
-%setup -q -n %{pkgname}-%{version}
-
-%build
+%setup -qn %{pkgname}-%{version}
 # don't waste time building examples
 sed -i 's|^\(SUBDIRS =.*\)examples\(.*\)$|\1\2|' \
-        Makefile.am Makefile.in
+	Makefile.am Makefile.in
 autoreconf -fi
+
+%build
 %configure2_5x
 %make
 
@@ -93,11 +91,10 @@ make check
 %makeinstall_std
 
 %files -n %{libname}
-%doc COPYING NEWS README
 %{_libdir}/libsigc-%{api}.so.%{major}*
 
-%files -n %{develname}
-%doc AUTHORS ChangeLog TODO
+%files -n %{devname}
+%doc COPYING NEWS README AUTHORS ChangeLog TODO
 %{_includedir}/*
 %{_libdir}/lib*.so
 %{_libdir}/pkgconfig/*
