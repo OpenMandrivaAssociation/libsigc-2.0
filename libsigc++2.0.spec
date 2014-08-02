@@ -89,12 +89,13 @@ make check
 
 %install
 %makeinstall_std
+rm -f %{buildroot}/%{_docdir}/ChangeLog
 
 %files -n %{libname}
 %{_libdir}/libsigc-%{api}.so.%{major}*
 
 %files -n %{devname}
-%doc COPYING NEWS README AUTHORS ChangeLog TODO
+%doc COPYING NEWS README AUTHORS TODO
 %{_includedir}/*
 %{_libdir}/lib*.so
 %{_libdir}/pkgconfig/*
