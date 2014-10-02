@@ -8,7 +8,7 @@
 
 Summary:	The Typesafe Signal Framework for C++
 Name:		%{pkgname}%{api}
-Version:	2.3.2
+Version:	2.4.0
 Release:	1
 License:	LGPLv2
 Group:		System/Libraries
@@ -78,7 +78,7 @@ This package provides API documentation of %{pkgname} library.
 # don't waste time building examples
 sed -i 's|^\(SUBDIRS =.*\)examples\(.*\)$|\1\2|' \
 	Makefile.am Makefile.in
-autoreconf -fi
+#autoreconf -fi
 
 %build
 %configure2_5x
