@@ -5,11 +5,12 @@
 %define major	0
 %define libname	%mklibname sigc++ %{api} %{major}
 %define devname	%mklibname -d sigc++ %{api}
+%define _disable_rebuild_configure 1
 
 Summary:	The Typesafe Signal Framework for C++
 Name:		%{pkgname}%{api}
-Version:	2.4.1
-Release:	2
+Version:	2.6.1
+Release:	1
 License:	LGPLv2
 Group:		System/Libraries
 Url:		http://libsigc.sourceforge.net/
@@ -95,7 +96,7 @@ rm -f %{buildroot}/%{_docdir}/ChangeLog
 %{_libdir}/libsigc-%{api}.so.%{major}*
 
 %files -n %{devname}
-%doc COPYING NEWS README AUTHORS TODO
+%doc COPYING NEWS README AUTHORS
 %{_includedir}/*
 %{_libdir}/lib*.so
 %{_libdir}/pkgconfig/*
