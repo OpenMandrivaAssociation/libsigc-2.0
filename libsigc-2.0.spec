@@ -16,6 +16,7 @@ Group:		System/Libraries
 Url:		http://libsigc.sourceforge.net/
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libsigc++/%{url_ver}/%{pkgname}-%{version}.tar.xz
 BuildRequires:	mm-common
+BuildRequires:  meson
 
 %description
 Callback system for use in widget libraries, abstract interfaces, and
@@ -76,20 +77,13 @@ This package provides API documentation of %{pkgname} library.
 
 %prep
 %setup -qn %{pkgname}-%{version}
-# don't waste time building examples
-sed -i 's|^\(SUBDIRS =.*\)examples\(.*\)$|\1\2|' \
-	Makefile.am Makefile.in
-#autoreconf -fi
 
 %build
-%configure
-%make_build
-
-%check
-make check
+%meson
+%meson_build
 
 %install
-%make_install
+%meson_install
 rm -f %{buildroot}/%{_docdir}/ChangeLog
 
 %files -n %{libname}
@@ -105,4 +99,3 @@ rm -f %{buildroot}/%{_docdir}/ChangeLog
 %files doc
 %doc %{_docdir}/libsigc++-%{api}
 %_datadir/devhelp/books/libsigc++-%{api}
-
