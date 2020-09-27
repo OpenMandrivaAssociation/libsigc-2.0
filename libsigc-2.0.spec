@@ -68,12 +68,12 @@ This package contains the headers and static libraries of %{pkgname},
 which are needed when developing or compiling applications which use
 %{pkgname}.
 
-%package doc
-Summary:	Documentation for %{pkgname} library
-Group:		Books/Other
+#package doc
+#Summary:	Documentation for %{pkgname} library
+#Group:		Books/Other
 
-%description doc
-This package provides API documentation of %{pkgname} library.
+#description doc
+#This package provides API documentation of %{pkgname} library.
 
 %prep
 %setup -qn %{pkgname}-%{version}
@@ -96,6 +96,6 @@ rm -f %{buildroot}/%{_docdir}/ChangeLog
 %{_libdir}/pkgconfig/*
 %{_libdir}/sigc++-%{api}
 
-%files doc
-%doc %{_docdir}/libsigc++-%{api}
-%_datadir/devhelp/books/libsigc++-%{api}
+#files doc
+#doc %{_docdir}/libsigc++-%{api}
+#_datadir/devhelp/books/libsigc++-%{api}
