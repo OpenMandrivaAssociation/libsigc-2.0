@@ -9,7 +9,7 @@
 
 Summary:	The Typesafe Signal Framework for C++
 Name:		%{pkgname}%{api}
-Version:	2.10.4
+Version:	2.10.6
 Release:	1
 License:	LGPLv2
 Group:		System/Libraries
