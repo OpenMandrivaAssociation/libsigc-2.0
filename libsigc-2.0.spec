@@ -83,7 +83,7 @@ rm -f %{buildroot}/%{_docdir}/ChangeLog
 %{_libdir}/libsigc-%{api}.so.%{major}*
 
 %files -n %{devname}
-%doc COPYING NEWS README AUTHORS
+%doc COPYING NEWS
 %{_includedir}/*
 %{_libdir}/lib*.so
 %{_libdir}/pkgconfig/*
