@@ -9,12 +9,12 @@
 
 Summary:	The Typesafe Signal Framework for C++
 Name:		%{pkgname}%{api}
-Version:	2.10.8
-Release:	6
+Version:	2.12.1
+Release:	1
 License:	LGPLv2
 Group:		System/Libraries
-Url:		http://libsigc.sourceforge.net/
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libsigc++/%{url_ver}/%{pkgname}-%{version}.tar.xz
+Url:		https://libsigc.sourceforge.net/
+Source0:	https://ftp.gnome.org/pub/GNOME/sources/libsigc++/%{url_ver}/%{pkgname}-%{version}.tar.xz
 BuildRequires:	mm-common
 BuildRequires:  meson
 
